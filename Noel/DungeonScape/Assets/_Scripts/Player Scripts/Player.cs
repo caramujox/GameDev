@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class Player : MonoBehaviour, IDamageble
 {
@@ -29,6 +30,7 @@ public class Player : MonoBehaviour, IDamageble
     //private SpriteRenderer _spriteRend;
     private SpriteRenderer _swordSpriteRend;
     private GameObject _hitBox;
+    private bool isDead = false;
 
     //Variaveis de Implementação
     public int Health { get; set; }
@@ -42,72 +44,80 @@ public class Player : MonoBehaviour, IDamageble
         //_spriteRend = GetComponentInChildren<SpriteRenderer>();
         // _hitBox = GetComponentInChildren<BoxCollider2D>();
         _swordSpriteRend = transform.GetChild(1).GetComponent<SpriteRenderer>();
-        Health = 50;
+        Health = 4;
 
     }
 
     // Update is called once per frame
     void Update()
     {
-
         Movement();
         Attack();
-        
+        Debug.Log(isGrounded());
         
     }
 
     void Movement()
-    {
-        //Definições de movimento
-        //Pega o valor de input horizontal (A e D)
-        float horizontalInput = Input.GetAxisRaw("Horizontal");
+    { 
+        if (isDead == true)
+        {
+            _rigidBody.velocity = new Vector2(0, 0);
+            return;
+        }
+        else
+        {
+            //Definições de movimento
+            //Pega o valor de input horizontal (A e D)
+            //float horizontalInput = CrossPlatformInputManager.GetAxis("Horizontal"); //Input.GetAxisRaw("Horizontal")
+            float horizontalInput = Input.GetAxisRaw("Horizontal");
         //_grounded = isGrounded();
 
-        // checa se o valor é menor que zero (TRUE = faz o flip do sprite pra esquerda. FALSE = desativa o flip)
-        if (horizontalInput < 0)
-        {
-            //_spriteRend.flipX = false;
-            transform.localScale = new Vector3(1, 1, 1);
-            _swordSpriteRend.flipX = false;
-            _swordSpriteRend.flipY = false;
-            Vector3 newPose = _swordSpriteRend.transform.localPosition;
-            newPose.x = -0.11f;
-            _swordSpriteRend.transform.localPosition = newPose;
-        }
-        else if (horizontalInput > 0)
-        {
-            //_spriteRend.flipX = true;
-            transform.localScale = new Vector3(-1, 1, 1);
-            _swordSpriteRend.flipX = true;
-            _swordSpriteRend.flipY = true;
-            Vector3 newPose = _swordSpriteRend.transform.localPosition;
-            newPose.x = 0.42f;
-            _swordSpriteRend.transform.localPosition = newPose;
-        }
+            // checa se o valor é menor que zero (TRUE = faz o flip do sprite pra esquerda. FALSE = desativa o flip)
+            if (horizontalInput < 0)
+            {
+                //_spriteRend.flipX = false;
+                transform.localScale = new Vector3(1, 1, 1);
+                _swordSpriteRend.flipX = false;
+                _swordSpriteRend.flipY = false;
+                Vector3 newPose = _swordSpriteRend.transform.localPosition;
+                newPose.x = -0.11f;
+                _swordSpriteRend.transform.localPosition = newPose;
+            }
+            else if (horizontalInput > 0)
+            {
+                //_spriteRend.flipX = true;
+                transform.localScale = new Vector3(-1, 1, 1);
+                _swordSpriteRend.flipX = true;
+                _swordSpriteRend.flipY = true;
+                Vector3 newPose = _swordSpriteRend.transform.localPosition;
+                newPose.x = 0.42f;
+                _swordSpriteRend.transform.localPosition = newPose;
+            }
 
-        //Lógica de Jump (se o metodo is Grounded retornar TRUE && o botão SPACE for apertado, faz o salto.)
-        if (isGrounded() == true && Input.GetKeyDown(KeyCode.Space))
-        {
-            Debug.Log("Jump!");
-            _rigidBody.velocity = new Vector2(_rigidBody.velocity.x, _jumpForce);
-            StartCoroutine(ResetJumpNeededCoroutine()); //Rotina para resetar o salto (Evita doublejumps)
-            _playerAnimation.Jump(true);
-        }
+            //Lógica de Jump (se o metodo is Grounded retornar TRUE && o botão SPACE for apertado, faz o salto.)
+            if ((isGrounded() == true && (Input.GetKeyDown(KeyCode.Space)) || (isGrounded() == true && CrossPlatformInputManager.GetButtonDown("B_Button"))))
+            {
+                Debug.Log("Jump!");
+                _rigidBody.velocity = new Vector2(_rigidBody.velocity.x, _jumpForce);
+                StartCoroutine(ResetJumpNeededCoroutine()); //Rotina para resetar o salto (Evita doublejumps)
+                _playerAnimation.Jump(true);
+            }
 
-        //Definiçoes basicas de movimento       
-        _rigidBody.velocity = new Vector2(horizontalInput * _speed, _rigidBody.velocity.y);
-        _playerAnimation.Walk(horizontalInput);
-
-
-        if (Input.GetKey(KeyCode.LeftShift) && (horizontalInput != 0))
-        {
-            _rigidBody.velocity = new Vector2(horizontalInput * _speed * _aceler, _rigidBody.velocity.y);
-            _playerAnimation.Run(true);
-        }
-        else if (Input.GetKeyUp(KeyCode.LeftShift) || (horizontalInput == 0))
-        {
+            //Definiçoes basicas de movimento       
             _rigidBody.velocity = new Vector2(horizontalInput * _speed, _rigidBody.velocity.y);
-            _playerAnimation.Run(false);
+            _playerAnimation.Walk(horizontalInput);
+
+
+            if (Input.GetKey(KeyCode.LeftShift) && (horizontalInput != 0))
+            {
+                _rigidBody.velocity = new Vector2(horizontalInput * _speed * _aceler, _rigidBody.velocity.y);
+                _playerAnimation.Run(true);
+            }
+            else if (Input.GetKeyUp(KeyCode.LeftShift) || (horizontalInput == 0))
+            {
+                _rigidBody.velocity = new Vector2(horizontalInput * _speed, _rigidBody.velocity.y);
+                _playerAnimation.Run(false);
+            }
         }
     }
 
@@ -126,17 +136,15 @@ public class Player : MonoBehaviour, IDamageble
             {
                 _playerAnimation.Jump(false);
                 return true;
-
             }
         }
         return false;
-
     }
 
     void Attack()
     {
         
-        if (isGrounded() == true && Input.GetMouseButtonDown(0))
+        if (isGrounded() == true && CrossPlatformInputManager.GetButtonDown("A_Button") || isGrounded() && Input.GetMouseButtonDown(0))
         {
             // Debug.Log(isGrounded());                 
             _playerAnimation.AttackAnim();
@@ -152,11 +160,26 @@ public class Player : MonoBehaviour, IDamageble
 
     public void Damage()
     {
-        Health--;
-        if (Health < 1)
+        if (isDead)
         {
-            _playerAnimation.Death();
+            return;
         }
+        else
+        {
+            Health--;
+            UIManager.Instance.UpdateLives(Health);
+            if (Health < 1)
+            {
+                isDead = true;
+                _playerAnimation.Death();
+            }
+        }
+    }
+
+    public void AddGems(int amount)
+    {
+        _diamonds += amount;
+        UIManager.Instance.UpdateGemCount(_diamonds);
     }
 
 

@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="..\..\AAAAAAAAAAAAAa.uproject" />
+    <Filter Include="Source">
+      <UniqueIdentifier>{1AC93DDE-5B8C-4C87-871C-143F4E8B2344}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\AAAAAAAAAAAAAa.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\Source\AAAAAAAAAAAAAaEditor.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <Filter Include="Config">
+      <UniqueIdentifier>{7DEFBA8E-B414-466C-80CA-B37987DA68D6}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEngine.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultGame.ini">
+      <Filter>Config</Filter>
+    </None>
+    <Filter Include="Source\AAAAAAAAAAAAAa">
+      <UniqueIdentifier>{8BCB2179-1794-42A7-A0D3-31BF5BEE3C51}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\AAAAAAAAAAAAAa\AAAAAAAAAAAAAa.Build.cs">
+      <Filter>Source\AAAAAAAAAAAAAa</Filter>
+    </None>
+    <ClCompile Include="..\..\Source\AAAAAAAAAAAAAa\AAAAAAAAAAAAAa.cpp">
+      <Filter>Source\AAAAAAAAAAAAAa</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\AAAAAAAAAAAAAa\AAAAAAAAAAAAAa.h">
+      <Filter>Source\AAAAAAAAAAAAAa</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\AAAAAAAAAAAAAa\AAAAAAAAAAAAAaGameModeBase.cpp">
+      <Filter>Source\AAAAAAAAAAAAAa</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\AAAAAAAAAAAAAa\AAAAAAAAAAAAAaGameModeBase.h">
+      <Filter>Source\AAAAAAAAAAAAAa</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Source\AAAAAAAAAAAAAa\MyActor.h">
+      <Filter>Source\AAAAAAAAAAAAAa</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\AAAAAAAAAAAAAa\AtorFlutuante.h">
+      <Filter>Source\AAAAAAAAAAAAAa</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Source\AAAAAAAAAAAAAa\MyActor.cpp">
+      <Filter>Source\AAAAAAAAAAAAAa</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\AAAAAAAAAAAAAa\AtorFlutuante.cpp">
+      <Filter>Source\AAAAAAAAAAAAAa</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemGroup>
+		<None Include="..\..\AgoraVai.uproject" />
+		<Filter Include="Source">
+			<UniqueIdentifier>{66CBA4F3-58C4-4455-B933-FA43A3FDD5E3}</UniqueIdentifier>
+		</Filter>
+		<None Include="..\..\Source\AgoraVai.Target.cs">
+			<Filter>Source</Filter>
+		</None >
+		<None Include="..\..\Source\AgoraVaiEditor.Target.cs">
+			<Filter>Source</Filter>
+		</None >
+		<Filter Include="Config">
+			<UniqueIdentifier>{E1AE692B-E51B-431A-B291-C1BCC4E149DA}</UniqueIdentifier>
+		</Filter>
+		<None Include="..\..\Config\DefaultEditor.ini">
+			<Filter>Config</Filter>
+		</None >
+		<None Include="..\..\Config\DefaultEngine.ini">
+			<Filter>Config</Filter>
+		</None >
+		<None Include="..\..\Config\DefaultGame.ini">
+			<Filter>Config</Filter>
+		</None >
+		<Filter Include="Source\AgoraVai">
+			<UniqueIdentifier>{DD7D01A3-A936-4406-805A-1B3E429B40A6}</UniqueIdentifier>
+		</Filter>
+		<None Include="..\..\Source\AgoraVai\AgoraVai.Build.cs">
+			<Filter>Source\AgoraVai</Filter>
+		</None >
+		<ClCompile Include="..\..\Source\AgoraVai\AgoraVai.cpp">
+			<Filter>Source\AgoraVai</Filter>
+		</ClCompile >
+		<ClInclude Include="..\..\Source\AgoraVai\AgoraVai.h">
+			<Filter>Source\AgoraVai</Filter>
+		</ClInclude >
+		<ClCompile Include="..\..\Source\AgoraVai\AgoraVaiGameModeBase.cpp">
+			<Filter>Source\AgoraVai</Filter>
+		</ClCompile >
+		<ClInclude Include="..\..\Source\AgoraVai\AgoraVaiGameModeBase.h">
+			<Filter>Source\AgoraVai</Filter>
+		</ClInclude >
+	</ItemGroup>
+</Project>

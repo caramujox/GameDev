@@ -11,6 +11,7 @@ public class Skeleton : Enemy, IDamageble {
     {
         base.Initializer();
         base.health = 5;
+        base.speed = 1.5f;
         Health = base.health;
         base.gems = 4;
     }

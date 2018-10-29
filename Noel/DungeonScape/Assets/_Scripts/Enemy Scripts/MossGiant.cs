@@ -12,6 +12,7 @@ public class MossGiant : Enemy, IDamageble {
         base.Initializer();
         base.health = 6;
         base.gems = 5;
+        base.speed = 1.2f;
         Health = base.health;
     }
 

@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemGroup>
+		<None Include="..\..\VamoDenovoCpp.uproject" />
+		<Filter Include="Source">
+			<UniqueIdentifier>{741C77A5-5C2B-41B4-BC67-C2E7829167C0}</UniqueIdentifier>
+		</Filter>
+		<None Include="..\..\Source\VamoDenovoCpp.Target.cs">
+			<Filter>Source</Filter>
+		</None >
+		<None Include="..\..\Source\VamoDenovoCppEditor.Target.cs">
+			<Filter>Source</Filter>
+		</None >
+		<Filter Include="Config">
+			<UniqueIdentifier>{8BDD9A10-025F-41B8-B9F2-3965B1C3874B}</UniqueIdentifier>
+		</Filter>
+		<None Include="..\..\Config\DefaultEditor.ini">
+			<Filter>Config</Filter>
+		</None >
+		<None Include="..\..\Config\DefaultEditorPerProjectUserSettings.ini">
+			<Filter>Config</Filter>
+		</None >
+		<None Include="..\..\Config\DefaultEngine.ini">
+			<Filter>Config</Filter>
+		</None >
+		<None Include="..\..\Config\DefaultGame.ini">
+			<Filter>Config</Filter>
+		</None >
+		<None Include="..\..\Config\DefaultInput.ini">
+			<Filter>Config</Filter>
+		</None >
+		<Filter Include="Source\VamoDenovoCpp">
+			<UniqueIdentifier>{ED5CE34B-F38B-4B69-9ADA-BB0BD5E79E2D}</UniqueIdentifier>
+		</Filter>
+		<None Include="..\..\Source\VamoDenovoCpp\VamoDenovoCpp.Build.cs">
+			<Filter>Source\VamoDenovoCpp</Filter>
+		</None >
+		<ClCompile Include="..\..\Source\VamoDenovoCpp\VamoDenovoCpp.cpp">
+			<Filter>Source\VamoDenovoCpp</Filter>
+		</ClCompile >
+		<ClInclude Include="..\..\Source\VamoDenovoCpp\VamoDenovoCpp.h">
+			<Filter>Source\VamoDenovoCpp</Filter>
+		</ClInclude >
+		<ClCompile Include="..\..\Source\VamoDenovoCpp\VamoDenovoCppCharacter.cpp">
+			<Filter>Source\VamoDenovoCpp</Filter>
+		</ClCompile >
+		<ClInclude Include="..\..\Source\VamoDenovoCpp\VamoDenovoCppCharacter.h">
+			<Filter>Source\VamoDenovoCpp</Filter>
+		</ClInclude >
+		<ClCompile Include="..\..\Source\VamoDenovoCpp\VamoDenovoCppGameMode.cpp">
+			<Filter>Source\VamoDenovoCpp</Filter>
+		</ClCompile >
+		<ClInclude Include="..\..\Source\VamoDenovoCpp\VamoDenovoCppGameMode.h">
+			<Filter>Source\VamoDenovoCpp</Filter>
+		</ClInclude >
+		<ClCompile Include="..\..\Source\VamoDenovoCpp\VamoDenovoCppHUD.cpp">
+			<Filter>Source\VamoDenovoCpp</Filter>
+		</ClCompile >
+		<ClInclude Include="..\..\Source\VamoDenovoCpp\VamoDenovoCppHUD.h">
+			<Filter>Source\VamoDenovoCpp</Filter>
+		</ClInclude >
+		<ClCompile Include="..\..\Source\VamoDenovoCpp\VamoDenovoCppProjectile.cpp">
+			<Filter>Source\VamoDenovoCpp</Filter>
+		</ClCompile >
+		<ClInclude Include="..\..\Source\VamoDenovoCpp\VamoDenovoCppProjectile.h">
+			<Filter>Source\VamoDenovoCpp</Filter>
+		</ClInclude >
+	</ItemGroup>
+</Project>
